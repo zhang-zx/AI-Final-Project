@@ -1,4 +1,6 @@
 # AI-Final-Project
+ssh -N -f -L localhost:8080:localhost:8080 google
+
 - 可行选题：
     - 使用GAN实现一个图片生成，类似https://github.com/llSourcell/Pokemon_GAN，将用TensorFlow实现的转移到pytorch上实现
     - 垃圾邮件识别

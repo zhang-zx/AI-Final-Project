@@ -32,33 +32,33 @@ train_loader = torch.utils.data.DataLoader(trainSet, batch_size=batch_size, shuf
 # test_loader = torch.utils.data.DataLoader(test_loader, batch_size=batch_size, shuffle=False)
 
 
-temp_z = torch.rand(20, 100)
+temp_z = torch.rand(10, 100)
 fixed_z = temp_z
-fixed_y = torch.zeros(20, 1)
+fixed_y = torch.zeros(10, 1)
 
 for i in range(9):
     fixed_z = torch.cat([fixed_z, temp_z], 0)
-    temp = torch.ones(20,1) + i
+    temp = torch.ones(10,1) + i
     fixed_y = torch.cat([fixed_y, temp], 0)
 
 fixed_z = Variable(fixed_z.cuda(), volatile=True)
-fixed_y_label = torch.zeros(200, 10)
+fixed_y_label = torch.zeros(100, 10)
 fixed_y_label.scatter_(1, fixed_y.type(torch.LongTensor), 1)
 fixed_y_label = Variable(fixed_y_label.cuda(), volatile=True)
 
-# 10(classes) * 20(pics)
+# 10(classes) * 10(pics)
 def show_result(epoch_count, show = False, save = True, path = './'):
     G.eval()
     result = G(fixed_z, fixed_y_label)
     G.train()
-    x_size = 20
+    x_size = 10
     y_size = 10
-    fig, ax = plt.subplots(y_size, x_size, figsize=(10, 5))
+    fig, ax = plt.subplots(y_size, x_size, figsize=(5, 5))
     for i, j in itertools.product(range(x_size), range(y_size)):
         ax[i, j].get_xaxis().set_visible(False)
         ax[i, j].get_yaxis().set_visible(False)
-    for k in range(200):
-        i = k // 20
+    for k in range(100):
+        i = k // 10
         j = k % 10
         ax[i, j].cla()
         ax[i, j].imshow(result[k].cpu().data.view(28, 28).numpy(), cmap='gray')
@@ -185,7 +185,8 @@ hist['total_time'] = 0
 
 
 start_time = time.time()
-print('training start ')
+print("training start")
+# print('training start at: ' + start_time)
 
 for epoch in range(train_epoch):
     D_losses = []
@@ -262,8 +263,8 @@ for epoch in range(train_epoch):
         G_losses.append(G_loss.data[0])
 
     epoch_time = time.time() - epoch_start_time
-    hist['D_losses'] += D_losses
-    hist['G_losses'] += G_losses
+    hist['D_losses'].append(torch.mean(torch.FloatTensor(D_losses)))
+    hist['G_losses'].append(torch.mean(torch.FloatTensor(D_losses)))
     hist['epoch_time'].append(epoch_time)
 
     print('[%d/%d] - ptime: %.2f, loss_d: %.3f, loss_g: %.3f' % ((epoch + 1), train_epoch, epoch_time, torch.mean(torch.FloatTensor(D_losses)),

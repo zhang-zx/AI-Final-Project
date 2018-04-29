@@ -275,7 +275,7 @@ for epoch in range(train_epoch):
 total_time = time.time() - start_time
 hist['total_time'] = total_time
 
-print("Avg one epoch time: %.2f, total %d epochs time: %.2f" % (torch.mean(torch.FloatTensor(train_hist['epoch_time'])), train_epoch, total_time))
+print("Avg one epoch time: %.2f, total %d epochs time: %.2f" % (torch.mean(torch.FloatTensor(hist['epoch_time'])), train_epoch, total_time))
 print("Training finished! saving the training results")
 torch.save(G.state_dict(), "FashionMNIST_results/generator_param.pkl")
 torch.save(D.state_dict(), "FashionMNIST_results/discriminator_param.pkl")

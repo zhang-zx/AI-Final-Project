@@ -8,9 +8,9 @@ class discriminator(nn.Module):
     def __init__(self):
         super(discriminator, self).__init__()
         self.fc1_1 = nn.Linear(784, 1024)
-        # self.fc1_1_bn = nn.BatchNorm1d(1024)
+        self.fc1_1_bn = nn.BatchNorm1d(1024)
         self.fc1_2 = nn.Linear(10, 1024)
-        # self.fc1_2_bn = nn.BatchNorm1d(1024)
+        self.fc1_2_bn = nn.BatchNorm1d(1024)
         self.fc2 = nn.Linear(2048, 512)
         self.fc2_bn = nn.BatchNorm1d(512)
         self.fc3 = nn.Linear(512, 256)

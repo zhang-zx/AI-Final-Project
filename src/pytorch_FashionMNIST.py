@@ -52,12 +52,14 @@ for epoch in range(train_epoch):
             G_optimizer.param_groups[0]['lr'] *= 10
             D_optimizer.param_groups[0]['lr'] *= 10
             print("learning rate change by 10!")
+            print("current learning rate " + str(G_optimizer.param_groups[0]['lr']))
         before = hist['D_losses'][epoch-11]
         after = hist['D_losses'][epoch-1]
         if after >= before:
             G_optimizer.param_groups[0]['lr'] *= 0.7
             D_optimizer.param_groups[0]['lr'] *= 0.7
             print("learning rate change by 0.7!")
+            print("current learning rate " + str(G_optimizer.param_groups[0]['lr']))
     elif epoch >= 6:
         before = hist['D_losses'][epoch-6]
         after = hist['D_losses'][epoch-1]
@@ -65,8 +67,10 @@ for epoch in range(train_epoch):
             G_optimizer.param_groups[0]['lr'] *= 0.5
             D_optimizer.param_groups[0]['lr'] *= 0.5
             print("learning rate change by 0.5!")
+            print("current learning rate " + str(G_optimizer.param_groups[0]['lr']))
     
     epoch_start_time = time.time()
+    # alpha = 0
     for x, y in train_loader:
         D.zero_grad()
         
@@ -78,6 +82,8 @@ for epoch in range(train_epoch):
         y_label = torch.zeros(batch, 10)
         y_label.scatter_(1, y.view(batch, 1), 1)
 
+        # x = resCon(x, alpha)
+        # alpha += 0.01
         x = x.view(-1, 28 * 28)
 
         x, y_label, y_real, y_fake = Variable(x.cuda()), Variable(y_label.cuda()), Variable(y_real.cuda()), Variable(y_fake.cuda())
@@ -85,6 +91,7 @@ for epoch in range(train_epoch):
         D_result = D(x, y_label).squeeze()
         D_real_loss = BCELoss(D_result, y_real)
         
+
         # generate fake data
         z = torch.rand((batch, 100))
         y = (torch.rand(batch, 1) * 10).type(torch.LongTensor)
@@ -138,3 +145,6 @@ for epoch in range(train_epoch):
 total_time = time.time() - start_time
 hist['total_time'] = total_time
 resultSaver(G, D, hist, train_epoch)
+
+
+if __name__ == '__main__':

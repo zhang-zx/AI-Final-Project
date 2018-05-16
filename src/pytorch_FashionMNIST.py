@@ -134,7 +134,7 @@ for epoch in range(train_epoch):
 
     epoch_time = time.time() - epoch_start_time
     hist['D_losses'].append(torch.mean(torch.FloatTensor(D_losses)))
-    hist['G_losses'].append(torch.mean(torch.FloatTensor(D_losses)))
+    hist['G_losses'].append(torch.mean(torch.FloatTensor(G_losses)))
     hist['epoch_time'].append(epoch_time)
 
     print('[%d/%d] - ptime: %.2f, loss_d: %.3f, loss_g: %.3f' % ((epoch + 1), train_epoch, epoch_time, torch.mean(torch.FloatTensor(D_losses)),

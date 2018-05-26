@@ -1,4 +1,5 @@
 import torch.nn as nn
+from torchvision.utils import save_image
 import matplotlib.pyplot as plt 
 plt.switch_backend('agg')
 import itertools
@@ -24,6 +25,7 @@ def show_result(G, fixed_z, fixed_y_label, epoch_count, show = False, save = Tru
     G.eval()
     result = G(fixed_z, fixed_y_label)
     G.train()
+    # save_image(result.cpu().data, path, nrow=10, normalize=True)
     x_size = 10
     y_size = 10
     fig, ax = plt.subplots(y_size, x_size, figsize=(5, 5))

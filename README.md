@@ -1,4 +1,4 @@
-#AI final project proposal
+#Tsinghua AI final project 
 
 ##### 小组成员：朱文轩 钟昊东 张知行
 

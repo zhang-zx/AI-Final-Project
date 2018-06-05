@@ -1,0 +1,15 @@
+[0] Config.pm:302> INFO - This is Biber 2.11
+[0] Config.pm:305> INFO - Logfile is '/Users/zhixingzhang/Documents/å¤§ä¸ä¸/AI-Final-Project/poster/.texpadtmp/main.blg'
+[41] biber-darwin:313> INFO - === Mon Jun  4, 2018, 19:08:24
+[201] Biber.pm:371> INFO - Reading '/Users/zhixingzhang/Documents/大三下/AI-Final-Project/poster/.texpadtmp/main.bcf'
+[284] Biber.pm:857> INFO - Found 5 citekeys in bib section 0
+[296] Biber.pm:3976> INFO - Processing section 0
+[310] Biber.pm:4136> INFO - Looking for bibtex format file '/Users/zhixingzhang/Documents/大三下/AI-Final-Project/poster/references.bib' for section 0
+[312] bibtex.pm:1500> INFO - LaTeX decoding ...
+[325] bibtex.pm:1316> INFO - Found BibTeX data source '/Users/zhixingzhang/Documents/大三下/AI-Final-Project/poster/references.bib'
+[401] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[401] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+[401] Biber.pm:3804> INFO - Sorting list 'nty/global//global/global' of type 'entry' with template 'nty' and locale 'en-US'
+[401] Biber.pm:3810> INFO - No sort tailoring available for locale 'en-US'
+[414] bbl.pm:617> INFO - Writing '/Users/zhixingzhang/Documents/å¤§ä¸ä¸/AI-Final-Project/poster/.texpadtmp/main.bbl' with encoding 'UTF-8'
+[417] bbl.pm:720> INFO - Output to /Users/zhixingzhang/Documents/å¤§ä¸ä¸/AI-Final-Project/poster/.texpadtmp/main.bbl

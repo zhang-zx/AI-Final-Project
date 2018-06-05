@@ -1,0 +1,60 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 2.9 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{nty/global//global/global}
+    \entry{1}{article}{}
+      \name{author}{2}{}{%
+        {{hash=6ba105d3cd39a31d9fcc7073f714fc1b}{%
+           family={Ahmed},
+           familyi={A\bibinitperiod},
+           given={M.},
+           giveni={M\bibinitperiod}}}%
+        {{hash=e0bc21132f92b6c3bf25009228c92e23}{%
+           family={Kim},
+           familyi={K\bibinitperiod},
+           given={D.R.},
+           giveni={D\bibinitperiod}}}%
+      }
+      \strng{namehash}{8aff0b389882f710e452718c2cd3d7e8}
+      \strng{fullhash}{8aff0b389882f710e452718c2cd3d7e8}
+      \strng{bibnamehash}{8aff0b389882f710e452718c2cd3d7e8}
+      \strng{authorbibnamehash}{8aff0b389882f710e452718c2cd3d7e8}
+      \strng{authornamehash}{8aff0b389882f710e452718c2cd3d7e8}
+      \strng{authorfullhash}{8aff0b389882f710e452718c2cd3d7e8}
+      \field{sortinit}{A}
+      \field{sortinithash}{d77c7cdd82ff690d4c3ef13216f92f0b}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{21678359}
+      \field{journaltitle}{PeerJ}
+      \field{number}{3}
+      \field{title}{{pcr: An R package for quality assessment, analysis and testing of qPCR data}}
+      \field{volume}{2018}
+      \field{year}{2018}
+      \verb{doi}
+      \verb 10.7717/peerj.4473
+      \endverb
+      \keyw{Data analysis,Quality assessment,R package,qPCR}
+    \endentry
+  \enddatalist
+  \missing{Ahmed2018a}
+\endrefsection
+\endinput
+

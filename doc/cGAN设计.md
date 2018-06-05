@@ -18,6 +18,6 @@
 
 ## 项目设计
 
-&emsp; &emsp; 基于上面提出的，与其他生成式模型相比，GAN这种竞争的方式不再要求一个假设的数据分布，从而导致过于自由的问题，有了CGAN的提出。在[Conditional Generative Adversarial Nets（CGAN）[Mirza M, Osindero S. Conditional]](https://arxiv.org/abs/1411.1784)这篇文章中，作者提出了在生成模型和判别模型的建设中引入条件变量y，使用额外的信息增加条件，从而指导数据生成的过程。如果条件变量y是类别标签，可以看做CGAN 是把纯无监督的 GAN 变成有监督的模型的一种改进。CGAN的简要结构如下图所示![image-20180529185649676](/Users/zhixingzhang/Documents/大三下/AI-Final-Project/media/image-20180529185649676.png)
+&emsp; &emsp; 基于上面提出的，与其他生成式模型相比，GAN这种竞争的方式不再要求一个假设的数据分布，从而导致过于自由的问题，有了CGAN的提出。在[Conditional Generative Adversarial Nets（CGAN）[Mirza M, Osindero S. Conditional]](https://arxiv.org/abs/1411.1784)这篇文章中，作者提出了在生成模型和判别模型的建设中引入条件变量y，使用额外的信息增加条件，从而指导数据生成的过程。如果条件变量y是类别标签，可以看做CGAN 是把纯无监督的 GAN 变成有监督的模型的一种改进。CGAN的简要结构如下图所示![image-20180529185649676](/Users/zhixingzhang/Documents/大三下/AI-Final-Project/doc/media/image-20180529185649676.png)
 
-&emsp; &emsp; 在我们的项目中，我们主要在pytorch的框架中实现了CGAN并使用FashionMNIST数据集进行了实验。我们的测试环境为：配置了4核心Intel(R) Core(TM) i5-7500 CPU @ 3.40GHz，24GRAM，GTX 1080Ti的Ubuntu16.04极客云服务器。使用Python3.6，pytorch0.3.1进行编程。我们的模型以及相应的参数如下图：![demo](/Users/zhixingzhang/Documents/大三下/AI-Final-Project/media/demo.jpeg)
+&emsp; &emsp; 在我们的项目中，我们主要在pytorch的框架中实现了CGAN并使用FashionMNIST数据集进行了实验。我们的测试环境为：配置了4核心Intel(R) Core(TM) i5-7500 CPU @ 3.40GHz，24GRAM，GTX 1080Ti的Ubuntu16.04极客云服务器。使用Python3.6，pytorch0.3.1进行编程。我们的模型以及相应的参数如下图：![demo](/Users/zhixingzhang/Documents/大三下/AI-Final-Project/doc/media/demo.jpeg)

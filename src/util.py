@@ -1,4 +1,5 @@
 import torch.nn as nn
+from torchvision.utils import save_image
 import matplotlib.pyplot as plt 
 plt.switch_backend('agg')
 import itertools
@@ -24,6 +25,7 @@ def show_result(G, fixed_z, fixed_y_label, epoch_count, show = False, save = Tru
     G.eval()
     result = G(fixed_z, fixed_y_label)
     G.train()
+    # save_image(result.cpu().data, path, nrow=10, normalize=True)
     x_size = 10
     y_size = 10
     fig, ax = plt.subplots(y_size, x_size, figsize=(5, 5))
@@ -79,3 +81,18 @@ def resultSaver(G, D, hist, train_epoch):
         img_name = 'FashionMNIST_results/Fixed_results/FashionMNIST_' + str(e + 1) + '.png'
         images.append(imageio.imread(img_name))
     imageio.mimsave('FashionMNIST_results/generation_animation.gif', images, fps=3)
+
+
+def resCon(x, alpha):
+    alpha = 1 - alpha
+    for x_ in x:
+        for i in range(0, 28, 2):
+            for j in range(0, 28, 2):
+                aver = (x_[i][j] + x_[i][j + 1] + x_[i + 1][j] + x_[i + 1][j + 1]) / 4.0
+                x_[i][j] = (1 - alpha) * x_[i][j] + alpha * aver
+                x_[i][j + 1] = (1 - alpha) * x_[i][j + 1] + alpha * aver
+                x_[i + 1][j] = (1 - alpha) * x_[i + 1][j] + alpha * aver
+                x_[i + 1][j + 1] = (1 - alpha) * x_[i + 1][j + 1] + alpha * aver
+
+    return x
+

@@ -147,4 +147,3 @@ hist['total_time'] = total_time
 resultSaver(G, D, hist, train_epoch)
 
 
-if __name__ == '__main__':

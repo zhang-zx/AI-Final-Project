@@ -16,6 +16,18 @@
 
 
 
+![label](./label.png)![500epoch](/Users/zhixingzhang/Documents/大三下/AI-Final-Project/poster/figures/500epoch.png)
+
+
+
+
+
+
+
+
+
+
+
 
 
 
